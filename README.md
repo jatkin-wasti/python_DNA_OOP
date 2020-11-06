@@ -41,11 +41,13 @@ sequence
 - But we should only loop through sequences that are shorter than the defined maximum (in this case 1000)
 - Therefore, we'll first check what is returned from our length_check method and only continue if it is shorter than
  this value 
-- Once this loop has completed, we can print the output of our display_output method
 ```
     def loop_through(self):
         # We should only loop through a sequence that isn't bigger than the max_length
         if self.length_check() == "We can parse this sequence!":
+```
+- And then we can loop through the sequence
+```
             # Loop through the sequence and tally up each occurence of each letter
             for _ in self.dna_sequence:
                 if _.upper() == "A":
@@ -56,12 +58,18 @@ sequence
                     self.g_num += 1
                 elif _.upper() == "T":
                     self.t_num += 1
+``` 
+- Once this loop has completed, we can print the output of our display_output method
+
+```
             # Once the for loop is done we can call our display_output method to display the numbers calculated
             print(self.display_output())
         else:
             # If the sequence is too long, print the message telling the user this
             print(self.length_check())
 ```
+- That trailing else is the counterpart to the initial if statement checking the length of the sequence, if it is too 
+long the else statement runs and prints the necessary warning to the user
 ## Testing
 - First lets test it where the sequence is less than the max length allowed
 ```
